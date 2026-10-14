@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HookScore Privacy Policy</title>
+    <meta
+      name="description"
+      content="HookScore privacy policy covering Supabase, Google and Apple sign-in, selected video processing, AI providers, history, codes, guest UUIDs, usage analytics, install source, retention, deletion, and contact details."
+    />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="page">
+        <header class="topbar" aria-label="Site header">
+          <a class="brand" href="../" aria-label="HookScore legal home">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="brand-name">HookScore</span>
+          </a>
+          <nav class="nav" aria-label="Legal pages">
+            <a href="../">Legal Home</a>
+            <a href="../account-deletion/">Account Deletion</a>
+            <a href="hookscore://">Open App</a>
+          </nav>
+        </header>
+
+        <article class="policy">
+          <p class="eyebrow">Privacy Policy</p>
+          <h1>HookScore Privacy Policy</h1>
+          <p class="meta">Last updated: October 13, 2026</p>
+          <p class="lede">
+            This policy explains what HookScore collects and processes when you create an
+            account, use a free guest check, or ask the app to score a short-form video hook.
+            HookScore does not show ads, does not use third-party analytics or advertising SDKs,
+            does not sell personal data, and does not track you across other companies' apps or
+            websites.
+          </p>
+
+          <h2>Information We Collect</h2>
+          <h3>Account and Supabase auth data</h3>
+          <p>
+            HookScore uses Supabase for authentication. When you register or log in with email,
+            Supabase processes your email address, password authentication data, Supabase user
+            identifier, session identifiers, and the name you provide during registration.
+            HookScore uses that information to create your account, keep you signed in, and
+            associate saved hook checks with your account.
+          </p>
+          <p>
+            If you choose to continue with Google or Apple, the selected provider confirms your
+            identity and shares your account identifier, email address, and, where you allow it,
+            your name with Supabase. With Apple you can hide your real email address, in which case
+            HookScore receives an Apple relay address. HookScore does not receive your Google or
+            Apple password and uses this information only to create your account and keep you
+            signed in.
+          </p>
+          <p>
+            When you sign in with Apple, HookScore's server also keeps the Sign in with Apple
+            refresh token that Apple issues for your account. The app hands the Apple credential to
+            the server once, right after you sign in, and does not keep it. The token is stored
+            only on the server and is used for one purpose: to revoke HookScore's access to your
+            Apple ID when you delete your account. HookScore does not use it to read data
+            from your Apple account.
+          </p>
+
+          <h3>Hook check content</h3>
+          <p>
+            When you score a hook, HookScore processes the text and context you enter, including
+            the hook text, video description, target audience, niche, selected goals, selected
+            output language, and score results returned by the analyzer.
+          </p>
+
+          <h3>Microphone dictation</h3>
+          <p>
+            HookScore can use your microphone only when you choose the Dictate action in a text
+            field. Your speech is converted to text by your device's speech-recognition service
+            (Apple Speech on iOS, the system speech recognizer on Android). Depending on your
+            device and settings, that service may process the audio on the device or send it to
+            Apple or Google under their own privacy policies. HookScore receives only the
+            resulting text, which you can edit, and does not record or store dictation audio.
+          </p>
+
+          <h3>Selected video, frame, and audio processing</h3>
+          <p>
+            Adding a video is optional. If you select a video, HookScore samples the opening
+            window you choose, currently three to five seconds. The app extracts still frames from
+            that opening window and sends those image samples to the AI provider. On web builds,
+            if the provider supports audio input, the app may also extract a short WAV audio
+            sample from the same opening window and send it to that provider. The iOS and Android
+            apps send image frames only. The full video file is never uploaded.
+          </p>
+          <p>
+            HookScore stores video metadata for authenticated history, such as filename, MIME
+            type, local source URI, selected opening window, preparation time, and duration.
+            HookScore does not store the raw selected video file, extracted frame images, or
+            extracted audio samples in its Supabase history tables.
+          </p>
+
+          <h3>Usage, history, credits, and codes</h3>
+          <p>
+            For authenticated users, HookScore stores daily usage counts and saved hook history in
+            Supabase. Saved history includes the analysis result, score, goals, model metadata,
+            hook context, selected clip metadata, and timestamps. Guest checks are not saved to
+            account history.
+          </p>
+          <p>
+            If you redeem a promo, creator, or invite code, HookScore stores which code you
+            redeemed, when, and how many bonus checks it added, together with your bonus check
+            balance. Every account can get a personal invite code; HookScore stores that code and
+            how many people redeemed it so it can reward you. The person who shares an invite code
+            sees only how many friends joined, not who they are.
+          </p>
+
+          <h3>Score share cards</h3>
+          <p>
+            If you tap Share on a result, the app renders the score card as an image on your
+            device and opens your device's share sheet. The image is shared only with the app or
+            person you choose. HookScore does not upload or store the shared card.
+          </p>
+
+          <h3>Usage analytics</h3>
+          <p>
+            The app records a small set of in-app events (for example: app opened, hook check
+            started or completed with a score range, code applied, score card or invite shared,
+            invite link opened) together with the app's random device UUID, your account
+            identifier when you are signed in, platform, app version and device language. Events
+            never include your hook text, video, email or other free text, and never include the
+            invite code you share. HookScore stores them in its own Supabase database and uses them
+            only to understand which features and channels work; no third-party analytics service
+            receives them. Raw events are deleted after 180 days; only daily totals are kept. You
+            can turn usage analytics off in Settings. Events linked to your account are deleted
+            when you delete the account.
+          </p>
+
+          <h3>Install source and invite links</h3>
+          <p>
+            On Android the app reads the Google Play install referrer once to learn which link you
+            installed from (for example "tiktok" or a creator code) and stores that channel with
+            your account. HookScore keeps only the channel name, campaign and creator code, not the
+            full referrer. If you open a HookScore invite or creator link, the app remembers the
+            code and its channel on your device until you sign in, then applies the code and stores
+            the channel with your account. On iOS the install source is not available to the app.
+          </p>
+
+          <h3>Store ratings</h3>
+          <p>
+            The app may ask Apple or Google to show their rating prompt after a few successful
+            checks. The prompt is shown by the store, and HookScore does not receive your rating or
+            review through it.
+          </p>
+
+          <h3>Result reports</h3>
+          <p>
+            If you report an AI-generated hook result from inside the app, HookScore stores the
+            reported result identifier, the result content, report reason, timestamp, and, when
+            available, your account identifier and email address. HookScore uses these reports to
+            review analyzer quality, safety, and policy compliance.
+          </p>
+
+          <h3>Guest device UUID</h3>
+          <p>
+            If you use the free guest checks, HookScore creates a random device UUID and stores it
+            locally on your device. On web, it is stored in browser local storage. On native
+            builds, it is stored in secure device storage. Supabase stores that UUID with guest
+            usage count, first seen time, and last used time so HookScore can enforce the guest
+            check limit. The native apps also send the same UUID with usage analytics events; after
+            you sign in, it is stored together with your account's events, so HookScore can tell
+            that guest checks and a later sign-up happened on the same device. The UUID is not an
+            advertising identifier or a device hardware identifier.
+          </p>
+
+          <h2>AI Provider Usage</h2>
+          <p>
+            Hook analysis runs through a HookScore server function on Supabase, which calls the AI
+            provider with server-side credentials. HookScore currently uses the Google Gemini API.
+            The server can also be configured to use OpenAI; this policy will be updated before
+            that becomes the default. The provider receives the hook text and context you enter,
+            sampled frames from an optional selected video, and, when supported and available, a
+            short audio sample from the selected opening window. The provider returns structured
+            analysis, scores, observations, and rewrite suggestions. Your name, email address, and
+            account identifier are not sent to the AI provider.
+          </p>
+          <p>
+            AI provider processing is governed by the provider's own terms and privacy practices.
+            HookScore sends only the information needed to generate the hook score.
+          </p>
+
+          <h2>Service Providers</h2>
+          <ul>
+            <li>Supabase: authentication, database, and server functions.</li>
+            <li>Google: Gemini API for hook analysis, and Google sign-in if you choose it.</li>
+            <li>Apple: Sign in with Apple if you choose it.</li>
+            <li>OpenAI: only if the analyzer is switched to OpenAI, as described above.</li>
+            <li>GitHub Pages: hosts this website.</li>
+          </ul>
+
+          <h2>How We Use Information</h2>
+          <ul>
+            <li>Authenticate accounts and keep sessions active.</li>
+            <li>Generate hook scores, observations, and rewrite suggestions.</li>
+            <li>Show saved history for authenticated accounts.</li>
+            <li>Apply daily limits, guest limits, bonus checks, and promo, creator, and invite codes.</li>
+            <li>Review reported AI-generated results and improve safety controls.</li>
+            <li>
+              Understand which features and acquisition channels work, using usage analytics and
+              the install source.
+            </li>
+            <li>Revoke Sign in with Apple access when you delete your account.</li>
+            <li>Debug service reliability and protect against misuse.</li>
+          </ul>
+
+          <h2>Retention and Deletion</h2>
+          <p>
+            Authenticated hook history, usage records, bonus checks, and code redemptions are
+            retained while your account remains active. Guest UUID usage records are retained as
+            needed to enforce the guest check limit. Raw usage analytics events are deleted after
+            180 days; after that only daily totals per event and platform, without identifiers,
+            are kept. Local guest UUID storage remains on your device until you clear app data or
+            browser storage.
+          </p>
+          <p>
+            You can delete your HookScore account at any time from Settings in the app. If you
+            signed in with Apple, HookScore first revokes its Sign in with Apple access with
+            Apple. If Apple does not confirm the revocation, the account is not deleted and the
+            app asks you to try again. HookScore then deletes your account and the data linked to
+            it: saved history, usage records, bonus checks, code redemptions, your invite code,
+            usage analytics events and install source linked to the account, and stored Apple
+            tokens. Events recorded with only the guest device UUID before you signed in are no
+            longer linked to you and are deleted after 180 days. A record that a deletion was requested and completed, with
+            the account email and timestamps, is kept as proof of the deletion. Reported results
+            stay available for safety review without your account identifier or email address.
+          </p>
+          <p>
+            If you cannot sign in, you can request deletion of your account data or guest usage
+            record by emailing the contact address below. Some provider-side logs or backups may
+            remain for a limited period according to Supabase, Google, or OpenAI retention
+            practices.
+          </p>
+
+          <h2>Children</h2>
+          <p>
+            HookScore is intended for creators and businesses and is not directed to children
+            under 13. If you believe a child has created an account, contact us and we will
+            delete it.
+          </p>
+
+          <h2>Contact</h2>
+          <p class="section-note">
+            For privacy questions or deletion requests, email
+            <a href="mailto:penkin.yauhen@gmail.com">penkin.yauhen@gmail.com</a>.
+          </p>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

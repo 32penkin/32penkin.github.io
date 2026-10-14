@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HookScore – Score your first 3 seconds before you post</title>
+    <meta
+      name="description"
+      content="HookScore checks the hook of your TikTok, Reel or Short before you post: a score, the main reason viewers swipe away and three stronger rewrites."
+    />
+    <meta property="og:title" content="HookScore – Score your first 3 seconds before you post" />
+    <meta
+      property="og:description"
+      content="Paste your opening line, get a hook score and stronger rewrites in seconds. Free to start."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <style>
+      .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+      .store-soon { opacity: 0.6; pointer-events: none; }
+      .steps { display: grid; gap: 12px; margin: 32px 0 0; padding: 0; list-style: none; }
+      .steps li {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 16px 18px;
+      }
+      .steps strong { display: block; }
+      .example {
+        margin-top: 32px;
+        border: 1px solid var(--border-strong);
+        background: var(--surface);
+        border-radius: 12px;
+        padding: 20px;
+      }
+      .example .score { font-size: 48px; font-weight: 900; color: var(--accent); line-height: 1; }
+      .example p { margin: 8px 0 0; }
+      .code-note {
+        margin-top: 32px;
+        border-left: 4px solid var(--accent);
+        padding: 4px 0 4px 16px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="page">
+        <header class="topbar" aria-label="Site header">
+          <a class="brand" href="./" aria-label="HookScore home">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="brand-name">HookScore</span>
+          </a>
+          <nav class="nav" aria-label="Pages">
+            <a href="./privacy/">Privacy Policy</a>
+            <a href="./account-deletion/">Account Deletion</a>
+          </nav>
+        </header>
+
+        <section class="hero">
+          <p class="eyebrow">For TikTok, Reels and Shorts creators</p>
+          <h1>Score your first 3 seconds before you post</h1>
+          <p class="lede">
+            Paste the opening line of your video and describe what it is about. HookScore gives you
+            a hook score, the main reason viewers may swipe away and three stronger rewrites, so
+            you film the best version, not the first one.
+          </p>
+          <div class="stores">
+            <!-- data-store links get ?src=/&cmp=/&code= from the page URL (assets/hookscore-links.js):
+                 Play carries them in the install referrer, which the app reads on first launch. -->
+            <a
+              class="button primary"
+              data-store="play"
+              href="https://play.google.com/store/apps/details?id=com.hookscore.app"
+              >Get it on Google Play</a
+            >
+            <!-- Once the iOS app is live: replace with
+                 <a class="button" data-store="app-store" href="https://apps.apple.com/app/id6822250563">Download on the App Store</a> -->
+            <a class="button store-soon" href="#" aria-disabled="true">App Store – coming soon</a>
+          </div>
+
+          <ol class="steps">
+            <li><strong>1. Paste your hook</strong>The first spoken line or on-screen text.</li>
+            <li>
+              <strong>2. Add context</strong>What the video is about, who it is for and your goal.
+            </li>
+            <li>
+              <strong>3. Get a score and rewrites</strong>Clarity, payoff speed, curiosity and more,
+              plus 3 rewritten hooks and first-frame text.
+            </li>
+          </ol>
+
+          <div class="example" aria-label="Example result">
+            <div class="score">58</div>
+            <p><strong>Weak but fixable.</strong> The hook starts with setup and hides the payoff.</p>
+            <p>Try instead: “I wasted $300 learning this so you don’t have to.”</p>
+          </div>
+
+          <p class="code-note">
+            Free to start: 2 checks without an account, 5 free checks every day after you sign up. Got
+            a creator or invite code? Enter it in the app for extra checks.
+          </p>
+        </section>
+
+        <p class="footer">
+          HookScore grades hook mechanics. It does not promise views or viral results.<br />
+          Contact:
+          <a href="mailto:penkin.yauhen@gmail.com">penkin.yauhen@gmail.com</a>
+        </p>
+      </main>
+    </div>
+    <script src="./assets/hookscore-links.js"></script>
+    <script>
+      window.HookScoreLinks.decorateStoreLinks(document, window.location.search);
+    </script>
+  </body>
+</html>

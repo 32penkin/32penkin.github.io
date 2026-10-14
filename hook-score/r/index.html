@@ -1,0 +1,126 @@
+<!doctype html>
+<!--
+  Redeem link page.
+  Public URL: https://32penkin.github.io/hook-score/r/?code=ANNA5&src=creator_anna5
+  - Android Chrome: opens the app (intent) or falls back to Google Play with the code and source in
+    the install referrer, so the app can auto-apply the code after the first sign-up.
+  - iOS: never auto-opens the app scheme (Safari shows an error when the app is missing). Shows the
+    App Store button, an "Open the app" button and a Copy button for the code.
+  - In-app browsers (TikTok, Instagram...): only buttons, plus a hint to open in the browser.
+  No cookies, no analytics, nothing is sent anywhere.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>HookScore – your code</title>
+    <meta property="og:title" content="Get extra free hook checks on HookScore" />
+    <meta property="og:description" content="Score the first 3 seconds of your short video before you post." />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <style>
+      .code-box { margin: 24px 0 8px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .code-value {
+        font-size: 32px; font-weight: 900; letter-spacing: 0.08em;
+        border: 1px dashed var(--border-strong); border-radius: 12px; padding: 8px 16px;
+      }
+      .stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+      .hint { color: var(--muted); margin-top: 16px; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <main class="page">
+        <header class="topbar" aria-label="Site header">
+          <a class="brand" href="../" aria-label="HookScore home">
+            <span class="mark" aria-hidden="true"></span>
+            <span class="brand-name">HookScore</span>
+          </a>
+        </header>
+
+        <section class="hero">
+          <p class="eyebrow">Extra free checks</p>
+          <h1 id="title">Score your first 3 seconds before you post</h1>
+
+          <div id="code-section" hidden>
+            <p class="lede">Your code adds free checks after you sign up in the app.</p>
+            <div class="code-box">
+              <span class="code-value" id="code-value"></span>
+              <button class="button" id="copy-button" type="button">Copy code</button>
+            </div>
+            <p class="hint" id="copy-status" aria-live="polite"></p>
+          </div>
+
+          <div class="stores">
+            <a class="button primary" id="open-app" href="#" hidden>Open HookScore</a>
+            <a class="button primary" id="play-link" data-store="play"
+               href="https://play.google.com/store/apps/details?id=com.hookscore.app">Get it on Google Play</a>
+            <a class="button" id="app-store-link" data-store="app-store"
+               href="https://apps.apple.com/app/id6822250563">Download on the App Store</a>
+          </div>
+
+          <p class="hint" id="ios-hint" hidden>
+            Already have HookScore? Tap “Open HookScore”. New here? Install it, sign up, then paste the
+            code in “Have a code from a creator?”.
+          </p>
+          <p class="hint" id="in-app-hint" hidden>
+            If the buttons do nothing, open this page in your browser (menu ⋯ → Open in browser).
+          </p>
+        </section>
+
+        <p class="footer">HookScore grades hook mechanics. It does not promise views or viral results.</p>
+      </main>
+    </div>
+
+    <script src="../assets/hookscore-links.js"></script>
+    <script>
+      (function () {
+        var links = window.HookScoreLinks;
+        var params = links.readParams(window.location.search);
+        var code = params.code;
+        var src = params.src || (code ? 'code_link' : 'redeem_page');
+        var platform = links.detectPlatform(navigator.userAgent, navigator.maxTouchPoints);
+        var inApp = links.isInAppBrowser(navigator.userAgent);
+        var playUrl = links.buildPlayUrl({ src: src, medium: 'redeem_link', campaign: params.campaign, code: code });
+        var appStoreUrl = links.buildAppStoreUrl({ src: src });
+
+        document.getElementById('play-link').href = playUrl;
+        document.getElementById('app-store-link').href = appStoreUrl;
+        if (platform === 'android') document.getElementById('app-store-link').hidden = true;
+        if (platform === 'ios') document.getElementById('play-link').hidden = true;
+        if (inApp) document.getElementById('in-app-hint').hidden = false;
+
+        if (!code) return;
+
+        document.getElementById('code-section').hidden = false;
+        document.getElementById('code-value').textContent = code;
+        document.getElementById('title').textContent = 'Your HookScore code: ' + code;
+
+        document.getElementById('copy-button').addEventListener('click', function () {
+          var status = document.getElementById('copy-status');
+          var done = function () { status.textContent = 'Copied. Paste it in the app after you sign up.'; };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(code).then(done, function () { status.textContent = 'Copy failed: type ' + code; });
+          } else {
+            status.textContent = 'Type this code in the app: ' + code;
+          }
+        });
+
+        var openApp = document.getElementById('open-app');
+        if (platform === 'android') {
+          var intentUrl = links.buildAndroidIntentUrl(code, src, playUrl);
+          openApp.href = intentUrl;
+          openApp.hidden = false;
+          // Chrome opens the app, or Google Play with the code in the install referrer.
+          if (!inApp) window.location.replace(intentUrl);
+        } else if (platform === 'ios') {
+          openApp.href = links.buildAppUrl(code, src);
+          openApp.hidden = false;
+          openApp.className = 'button';
+          document.getElementById('ios-hint').hidden = false;
+        }
+      })();
+    </script>
+  </body>
+</html>
