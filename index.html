@@ -1,6 +1,159 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/hook-score/">
-<link rel="canonical" href="https://32penkin.github.io/hook-score/">
-<title>HookScore</title></head>
-<body><a href="/hook-score/">HookScore</a></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>little help labs — small apps for small everyday problems</title>
+<meta name="description" content="little help labs is a one-person app studio in Warsaw: small apps for small everyday problems. HookScore and Reverse Steps.">
+<link rel="canonical" href="https://32penkin.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="little help labs">
+<meta property="og:description" content="Small apps for small everyday problems. HookScore · Reverse Steps.">
+<meta property="og:url" content="https://32penkin.github.io/">
+<meta property="og:image" content="https://32penkin.github.io/assets/lhl/og-1200x630.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/lhl/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/lhl/avatar-400.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14161A; --paper: #F3F1EC; --tile: #E9ECEF; --ghost: #3A3F47; --spark: #FF5A1F; --muted: #6B717A;
+    --bg: var(--paper); --fg: var(--ink); --card: #FFFFFF; --line: #DEDAD2; --sub: var(--muted);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: var(--ink); --fg: var(--paper); --card: #1D2025; --line: #2C3037; --sub: #9AA0A9; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px; line-height: 1.5;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 28px 0 8px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: 22px; letter-spacing: -0.01em; }
+  .brand .labs { color: var(--spark); }
+  .mark { width: 36px; height: 36px; flex: none; }
+  .mark rect { fill: var(--fg); }
+  .mark rect.spark { fill: var(--spark); }
+  nav.social { display: flex; gap: 6px; flex-wrap: wrap; }
+  nav.social a {
+    text-decoration: none; font-size: 14px; font-weight: 700; padding: 6px 10px; border-radius: 999px;
+    border: 1px solid var(--line);
+  }
+  nav.social a:hover { border-color: var(--fg); }
+  .hero { padding: 56px 0 40px; }
+  .hero h1 { font-size: clamp(38px, 7vw, 72px); line-height: 1.02; letter-spacing: -0.03em; margin: 0 0 18px; font-weight: 800; }
+  .hero h1 em { font-style: normal; color: var(--spark); }
+  .hero p { font-size: clamp(18px, 2.4vw, 21px); color: var(--sub); max-width: 34em; margin: 0; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sub); margin: 0 0 16px; font-weight: 700; }
+  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; padding-bottom: 48px; }
+  .app { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .app-head { display: flex; align-items: center; gap: 14px; }
+  .app-icon { width: 56px; height: 56px; border-radius: 14px; flex: none; display: grid; place-items: center; font-weight: 800; font-size: 22px; color: #fff; }
+  .app-icon.hs { background: #111; }
+  .app-icon.rs { background: #B93D0A; color: #FFF4EA; }
+  .app h3 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
+  .tag { font-size: 13px; font-weight: 700; color: var(--sub); }
+  .tag.beta { color: var(--spark); }
+  .app p { margin: 0; color: var(--sub); flex: 1; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border-radius: 12px;
+    font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid var(--line);
+  }
+  .btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+  .btn:hover { border-color: var(--fg); }
+  .about { border-top: 1px solid var(--line); padding: 40px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .about p { margin: 0 0 8px; color: var(--sub); }
+  footer { padding: 24px 0 40px; font-size: 14px; color: var(--sub); }
+  @media (max-width: 560px) { header.top { flex-direction: column; align-items: flex-start; } .hero { padding-top: 32px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/" aria-label="little help labs home">
+      <svg class="mark" viewBox="0 0 30 30" aria-hidden="true">
+        <rect x="10.5" y="0" width="9" height="9" rx="2.4"/>
+        <rect x="0" y="10.5" width="9" height="9" rx="2.4"/>
+        <rect class="spark" x="10.5" y="10.5" width="9" height="9" rx="2.4"/>
+        <rect x="21" y="10.5" width="9" height="9" rx="2.4"/>
+        <rect x="10.5" y="21" width="9" height="9" rx="2.4"/>
+      </svg>
+      <span>little help <span class="labs">labs</span></span>
+    </a>
+    <nav class="social" aria-label="little help labs on social media">
+      <a href="https://www.tiktok.com/@hookscoreapp" rel="me">TikTok</a>
+      <a href="https://www.instagram.com/littlehelplabs/" rel="me">Instagram</a>
+      <a href="https://www.youtube.com/@littlehelplabs" rel="me">YouTube</a>
+      <a href="https://x.com/littlehelplabs" rel="me">X</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Small apps for small <em>everyday problems.</em></h1>
+    <p>little help labs is a one-person app studio in Warsaw. Each app does one small job well. I build them in public and share what works and what doesn't.</p>
+  </section>
+
+  <h2>Apps</h2>
+  <section class="apps">
+    <article class="app">
+      <div class="app-head">
+        <div class="app-icon hs" aria-hidden="true">H</div>
+        <div><h3>HookScore</h3><div class="tag">iPhone &amp; Android</div></div>
+      </div>
+      <p>Score the first 3 seconds of your TikTok, Reel or Short before you post — and see what to fix.</p>
+      <div class="links">
+        <a class="btn primary" data-app="hook-score" href="/hook-score/">Learn more</a>
+        <a class="btn" href="https://apps.apple.com/app/id6822250563">App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.hookscore.app">Google Play</a>
+      </div>
+    </article>
+    <article class="app">
+      <div class="app-head">
+        <div class="app-icon rs" aria-hidden="true">R</div>
+        <div><h3>Reverse Steps</h3><div class="tag beta">Beta · iPhone &amp; Android</div></div>
+      </div>
+      <p>Photograph every step as you take something apart, then follow your own steps back in reverse to put it together.</p>
+      <div class="links">
+        <a class="btn primary" data-app="reverse-steps" href="https://32penkin.github.io/reverse-steps-site/">Learn more &amp; join the beta</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="about">
+    <div>
+      <h2>Contact</h2>
+      <p>Questions, ideas, bugs: <a href="mailto:penkin.yauhen@gmail.com">penkin.yauhen@gmail.com</a></p>
+    </div>
+    <div>
+      <h2>Privacy</h2>
+      <p>Each app has its own policy: <a href="/hook-score/privacy/">HookScore</a> · <a href="https://32penkin.github.io/reverse-steps-site/privacy/">Reverse Steps</a>. This page sets no cookies and sends nothing anywhere.</p>
+    </div>
+  </section>
+
+  <footer>© 2026 little help labs · Yauhen Penkin, Warsaw</footer>
+</div>
+<script>
+  // Pass ?src= (which network the visitor came from) on to the app pages, so each app site keeps its
+  // own attribution: Reverse Steps reads ?src=&cmp=, HookScore reads utm_*. Nothing is stored or sent.
+  (function () {
+    try {
+      var src = (new URLSearchParams(location.search).get('src') || '').toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 40);
+      if (!src) return;
+      document.querySelectorAll('a[data-app]').forEach(function (a) {
+        var url = new URL(a.href, location.href);
+        if (a.dataset.app === 'reverse-steps') { url.searchParams.set('src', src); url.searchParams.set('cmp', 'studio'); }
+        else { url.searchParams.set('utm_source', src); url.searchParams.set('utm_medium', 'social'); url.searchParams.set('utm_campaign', 'studio'); }
+        a.href = url.toString();
+      });
+    } catch (e) { /* links stay plain */ }
+  })();
+</script>
+</body>
+</html>
