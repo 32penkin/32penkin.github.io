@@ -17,4 +17,8 @@ launch. `/r/?code=CODE&src=...` opens the app with `hookscore://redeem?c=CODE` (
 falls back to Play with the code in the referrer; iOS shows buttons and a copy button). Tests:
 `node --test tools/web/hookscore-links.test.cjs`.
 
-The workflow in `.github/workflows/deploy-docs.yml` publishes this folder with GitHub Pages. In the repository settings, configure Pages to use GitHub Actions.
+This repository is private, so GitHub Pages cannot serve it. On every push to `main` that changes
+this folder, `.github/workflows/deploy-docs.yml` mirrors it into the folder `hook-score/` of the
+public repository `32penkin/32penkin.github.io`, whose Pages build publishes the site. The job runs
+in the `github-pages` environment (deployments from `main` only) and pushes with the environment
+secret `SITE_DEPLOY_KEY`, a deploy key with write access to that repository only.
