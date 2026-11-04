@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>little help labs — small apps for small everyday problems</title>
-<meta name="description" content="little help labs is a one-person app studio in Warsaw: small apps for small everyday problems. HookScore and Reverse Steps.">
+<meta name="description" content="little help labs is a one-person app studio in Warsaw: small apps for small everyday problems. HookScore, Reverse Steps and PaperPing.">
 <link rel="canonical" href="https://32penkin.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="little help labs">
-<meta property="og:description" content="Small apps for small everyday problems. HookScore · Reverse Steps.">
+<meta property="og:description" content="Small apps for small everyday problems. HookScore · Reverse Steps · PaperPing.">
 <meta property="og:url" content="https://32penkin.github.io/">
 <meta property="og:image" content="https://32penkin.github.io/assets/lhl/og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -57,6 +57,7 @@
   .app-icon { width: 56px; height: 56px; border-radius: 14px; flex: none; display: grid; place-items: center; font-weight: 800; font-size: 22px; color: #fff; }
   .app-icon.hs { background: #111; }
   .app-icon.rs { background: #B93D0A; color: #FFF4EA; }
+  .app-icon.pp { background: #2450A6; }
   .app h3 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
   .tag { font-size: 13px; font-weight: 700; color: var(--sub); }
   .tag.beta { color: var(--spark); }
@@ -126,6 +127,16 @@
         <a class="btn" href="https://play.google.com/store/apps/details?id=com.reversesteps.app">Google Play</a>
       </div>
     </article>
+    <article class="app">
+      <div class="app-head">
+        <div class="app-icon pp" aria-hidden="true">P</div>
+        <div><h3>PaperPing</h3><div class="tag beta">Beta · iPhone &amp; Android</div></div>
+      </div>
+      <p>Share a screenshot, PDF or photo of a letter. Check the date, save — and get a reminder that brings the original back.</p>
+      <div class="links">
+        <a class="btn primary" data-app="paper-ping" href="https://32penkin.github.io/paper-ping-site/">Learn more &amp; join the beta</a>
+      </div>
+    </article>
   </section>
 
   <section class="about">
@@ -135,7 +146,7 @@
     </div>
     <div>
       <h2>Privacy</h2>
-      <p>Each app has its own policy: <a href="/hook-score/privacy/">HookScore</a> · <a href="https://32penkin.github.io/reverse-steps-site/privacy/">Reverse Steps</a>. This page sets no cookies and sends nothing anywhere.</p>
+      <p>Each app has its own policy: <a href="/hook-score/privacy/">HookScore</a> · <a href="https://32penkin.github.io/reverse-steps-site/privacy/">Reverse Steps</a> · <a href="https://32penkin.github.io/paper-ping-site/privacy/">PaperPing</a>. This page sets no cookies and sends nothing anywhere.</p>
     </div>
   </section>
 
@@ -143,14 +154,14 @@
 </div>
 <script>
   // Pass ?src= (which network the visitor came from) on to the app pages, so each app site keeps its
-  // own attribution: Reverse Steps reads ?src=&cmp=, HookScore reads utm_*. Nothing is stored or sent.
+  // own attribution: Reverse Steps and PaperPing get ?src=&cmp=, HookScore reads utm_*. Nothing is stored or sent.
   (function () {
     try {
       var src = (new URLSearchParams(location.search).get('src') || '').toLowerCase().replace(/[^a-z0-9_]/g, '').slice(0, 40);
       if (!src) return;
       document.querySelectorAll('a[data-app]').forEach(function (a) {
         var url = new URL(a.href, location.href);
-        if (a.dataset.app === 'reverse-steps') { url.searchParams.set('src', src); url.searchParams.set('cmp', 'studio'); }
+        if (a.dataset.app === 'reverse-steps' || a.dataset.app === 'paper-ping') { url.searchParams.set('src', src); url.searchParams.set('cmp', 'studio'); }
         else { url.searchParams.set('utm_source', src); url.searchParams.set('utm_medium', 'social'); url.searchParams.set('utm_campaign', 'studio'); }
         a.href = url.toString();
       });
